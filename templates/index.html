@@ -16,15 +16,31 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
+        background-color: #ff8039;
       }
       
       .wrapper {
         display: grid;
         grid-template-columns: calc(100% / 3) calc(100% / 3) calc(100% / 3);
+        background: radial-gradient(circle, red, #ff8039, #ff8039);
+        box-shadow: 2px 2px 10px 2px #000;
       }
       
       .object-card {
+        text-decoration: none;
+        font-size: 100px;
+        padding: 2px 20px 2px 20px;
         border: 2px solid #000;
+        border-radius: 20px;
+        margin: 10px;
+        color: #000;
+        background-color: bisque;
+      
+        transition: all 0.5s ease-in-out;
+      }
+      
+      .object-card:hover {
+        background-color: #ff8039;
       }
     </style>
   </head>
