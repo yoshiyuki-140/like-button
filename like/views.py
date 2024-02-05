@@ -15,4 +15,12 @@ class ObjectViewSet(viewsets.ModelViewSet):
 
 
 def index(request):
-    return render(request, 'index.html')
+    '''トップページのビュー
+    '''
+    return render(request, 'index.html', {'objects': Object.objects.all()})
+
+
+def object_detail(request, object_id):
+    '''オブジェクトの詳細ページのビュー
+    '''
+    return render(request, 'object_detail.html', {'object': Object.objects.get(id=object_id)})
