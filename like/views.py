@@ -1,7 +1,6 @@
 # coding:utf-8
 from django.shortcuts import render
-import django_filters
-from rest_framework import viewsets, filters
+from rest_framework import viewsets
 
 
 from like.models import Object
@@ -16,4 +15,4 @@ class ObjectViewSet(viewsets.ModelViewSet):
 
 
 def index(request):
-    return render(request, 'index.html', {})
+    return render(request, 'index.html')
