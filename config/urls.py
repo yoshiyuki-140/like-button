@@ -21,5 +21,6 @@ from like import views, urls
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(urls.router.urls), name='api'),
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    path('like/', include('like.urls')),
 ]

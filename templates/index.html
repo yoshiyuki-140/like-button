@@ -33,7 +33,7 @@
       <div class="container">
         <div class="wrapper">
           {% for object in objects %}
-            <a href="{% url 'object_detail' object_id %}" class="object-card">{{ object.name }}</a>
+            <a href="{% url 'object_detail' object.id %}" class="object-card">{{ object.name }}</a>
           {% endfor %}
         </div>
       </div>
