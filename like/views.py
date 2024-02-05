@@ -1,4 +1,4 @@
-#coding:utf-8
+# coding:utf-8
 from django.shortcuts import render
 import django_filters
 from rest_framework import viewsets, filters
@@ -12,3 +12,7 @@ class ObjectViewSet(viewsets.ModelViewSet):
     """
     queryset = Object.objects.all()
     serializer_class = ObjectSerializer
+
+
+def index(request):
+    return render(request, 'index.html', {})
