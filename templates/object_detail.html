@@ -171,7 +171,14 @@
       // いいね数を取得
       let objectLikeCount = getLikeCount()
       // objectLikeCountをデクリメント
-      objectLikeCount -= 1
+      if (objectLikeCount > 0) {
+        objectLikeCount -= 1
+      } else {
+        // 警告を表示
+        window.alert('いいね数は0以下にはできません')
+        // 関数終了
+        return 0
+      }
       // DBに反映
       updateDB(objectLikeCount)
       // カウンタに反映
