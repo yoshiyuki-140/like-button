@@ -35,16 +35,71 @@
   <body>
     <main>
       <div class="container">
-        <button class="like-btn">いいねボタン</button>
+        <button class="like-btn">いいね<small class="like-counter">{{ object.like }}</small></button>
       </div>
     </main>
   </body>
   <script>
-    document.querySelector('.like-btn').addEventListener('click', likeBtnClick)
+    // 画面読み込み時の処理
+    window.onload = function () {
+      let likeCount = getLikeCount()
+      updateLikeCounter(likeCount)
+    }
+    // イベントリスナー(main関数)の登録
+    document.querySelector('.like-btn').addEventListener('click', main)
+    
+    // 各種変数の定義
+    const scheme = 'http://127.0.0.1:8000'
+    const objectId = parseInt('{{object.id}}')
+    const objectName = '{{object.name}}'
+    // let objectLikeCount = getLikeCount()
+    
+    // apiのエンドポイントを定義
+    const apiEndpoint = '/api/objects/' + objectId + '/'
     
     // いいねボタンのクリックイベントを定義
-    function likeBtnClick() {
-      alert('いいね！')
+    async function main() {
+      // いいね数を取得
+      let objectLikeCount = getLikeCount()
+      // objectLikeCountをインクリメント
+      objectLikeCount += 1
+      // console.log(objectLikeCount)
+      // DBに反映
+      await updateDB(objectLikeCount)
+      // カウンタに反映
+      updateLikeCounter(objectLikeCount)
+    }
+    
+    // いいね数を取得 (GET)
+    function getLikeCount() {
+      return parseInt(document.querySelector('.like-counter').textContent)
+    }
+    
+    // いいねの数をAPIでDBに反映 (PUTメソッド)
+    function updateDB(objectLikeCount) {
+      fetch(apiEndpoint, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          id: objectId,
+          name: objectName,
+          like: objectLikeCount
+        })
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log('Success:', data)
+        })
+        .catch((error) => {
+          console.error('Error:', error)
+        })
+    }
+    
+    // いいね数をカウンタに反映
+    function updateLikeCounter(objectLikeCount) {
+      document.querySelector('.like-counter').textContent = objectLikeCount
     }
   </script>
 </html>
