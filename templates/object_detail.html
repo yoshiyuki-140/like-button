@@ -5,17 +5,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>like btn test</title>
     <style>
+      /* reset */
       * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
       }
       
+      /* header */
+      /* start */
+      header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        background-color: #f0f0f0;
+      }
+      
+      header > nav {
+        width: 80%;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      header > nav > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      header > nav > div > ul {
+        list-style: none;
+      }
+      
+      .page-title {
+      }
+      
+      .link-top {
+        text-decoration: none;
+      }
+      
+      /* end */
+      
+      /* main */
+      /* start */
       .container {
         display: flex;
         justify-content: center;
         align-items: center;
-        height: 100vh;
+        height: 80vh;
       }
       
       .like-btn {
@@ -37,9 +77,35 @@
         margin-left: 5px;
       }
       /* end */
+      /* end */
+      
+      /* footer */
+      /* start */
+      footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 10vh;
+        background-color: #f0f0f0;
+      }
+      /* end */
     </style>
   </head>
   <body>
+    <header>
+      <nav>
+        <div>
+          <h2 class="page-title">{{ object.name }}</h2>
+        </div>
+        <div>
+          <ul>
+            <li>
+              <a class="link-top" href="{% url 'index' %}">Top</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
     <main>
       <div class="container">
         <button class="like-btn">いいね<small class="like-counter">{{ object.like }}</small></button>
