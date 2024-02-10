@@ -2,7 +2,7 @@
 django restapiでいいねボタンを実装
 
 
-# DjangoとAjaxを使った「いいね」ボタンの実装
+# DjangoRESTFrameworkとJavaScript(fetchAPI)を使った「いいね」ボタンの実装
 
 このレポジトリは、DjangoRESTframeworkとfetchAPIを使用して「いいね」ボタンを作成するためのサンプルコードを含んでいます。これにより、ユーザーはページをリロードすることなく、投稿やコメントに「いいね」をつけることができます。
 
