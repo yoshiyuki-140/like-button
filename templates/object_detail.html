@@ -30,6 +30,13 @@
       .like-btn:hover {
         background-color: #ff1100;
       }
+      
+      /* いいね数のカウンタ */
+      /* start */
+      .like-counter {
+        margin-left: 5px;
+      }
+      /* end */
     </style>
   </head>
   <body>
@@ -63,7 +70,6 @@
       let objectLikeCount = getLikeCount()
       // objectLikeCountをインクリメント
       objectLikeCount += 1
-      // console.log(objectLikeCount)
       // DBに反映
       await updateDB(objectLikeCount)
       // カウンタに反映
